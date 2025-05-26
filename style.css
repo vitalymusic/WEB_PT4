@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Marck+Script&family=Meow+Script&display=swap');
+
+/* Fontu imports no google fonts */
+
+:root{
+    font-size: 16pt;
+    font-family: sans-serif;
+    /* font-family: cursive; */
+}
 *{
     box-sizing: border-box;
 }
@@ -9,6 +18,19 @@ header{
     margin:50px;
     margin:50px 100px;
     /* margin:50px 100px 100px 50px; */
+}
+
+nav{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    gap:15px;
+    padding: 20px;
+}
+
+nav a{
+    color:white;
+    text-decoration: none;
 }
 
 img.logo{
@@ -23,7 +45,7 @@ img.logo{
     
     padding: 50px;
     padding: 20px 50px;
-    max-width: 950px;
+    max-width: 1200px;
     margin:auto;
     /* box-sizing: border-box; */
     /* width:500px; */
@@ -73,3 +95,34 @@ footer h2{
     color:green;
     margin-top:50px;
 }
+
+
+/* Teksta formatēšana */
+    header h1{
+        text-align: center;
+        font-size: 3rem;
+        font-weight:100;
+        font-variant: normal;
+        text-transform: lowercase;
+        /* text-indent: 2rem; */
+        text-decoration: underline 1px double black;
+        font-family: cursive;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family: "Kalam", cursive;
+        font-weight: 700;
+    }
+
+    header h2{
+         font-family: "Marck Script", cursive;
+         font-size: 2rem;
+    }
+
+    .google_maps{
+        width: 100%;
+        height: 300px;
+    }
+
+    footer{
+        display: flex;
+        justify-content: space-around;
+    }
