@@ -131,9 +131,6 @@ footer h2{
         justify-content: space-around;
     }
 
-    footer{
-        /* position: relative; */
-    }
     /* Chat */
     .chat_window{
         /* outline:5px solid red; */
@@ -179,6 +176,7 @@ footer h2{
     nav{
         position: sticky;
         top:0px;
+        z-index: 10;
     }
 
 
@@ -261,6 +259,69 @@ footer h2{
 @-webkit-keyframes shadow-drop-2-center{0%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-box-shadow:0 0 0 0 transparent;box-shadow:0 0 0 0 transparent}100%{-webkit-transform:translateZ(50px);transform:translateZ(50px);-webkit-box-shadow:0 0 20px 0 rgba(0,0,0,.35);box-shadow:0 0 20px 0 rgba(0,0,0,.35)}}@keyframes shadow-drop-2-center{0%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-box-shadow:0 0 0 0 transparent;box-shadow:0 0 0 0 transparent}100%{-webkit-transform:translateZ(50px);transform:translateZ(50px);-webkit-box-shadow:0 0 20px 0 rgba(0,0,0,.35);box-shadow:0 0 20px 0 rgba(0,0,0,.35)}}
 
 
-.shadow-drop-2-center{-webkit-animation:shadow-drop-2-center .4s cubic-bezier(.86,0.000,.07,1.000) both;animation:shadow-drop-2-center .4s cubic-bezier(.86,0.000,.07,1.000) both}
+/* .shadow-drop-2-center{-webkit-animation:shadow-drop-2-center .4s cubic-bezier(.86,0.000,.07,1.000) both;animation:shadow-drop-2-center .4s cubic-bezier(.86,0.000,.07,1.000) both} */
+
+
+@media screen and (max-width: 860px) {
+    :root{
+        font-size: 12px;
+    }
+
+
+    h1{
+        font-size: 1rem;
+    }
+
+    nav{
+        flex-direction: column;
+        
+        a{
+            text-align: center;
+        }
+    }
+    
+    .container{
+        flex-direction: column;
+
+        main{
+            width: 100%;
+        }
+    }
+    aside{
+        display: none;
+    }
+
+    footer{
+        flex-direction: column;
+    }
+
+    .chat_window{
+        bottom: -198px;
+        right: 9px;
+    }
+    
+}
+
+@media screen and (min-width:861px) and (max-width: 1024px) {
+     :root{
+        font-size: 14px;
+    }
+    
+      h1{
+        font-size: 2rem;
+    }
+}
+
+/* @media screen and (max-width:1440px) {
+    
+     :root{
+        font-size: 14pt;
+    
+    }
+
+     h1{
+        font-size: 2rem;
+    }
+} */
 
 
