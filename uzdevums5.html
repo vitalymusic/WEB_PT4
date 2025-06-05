@@ -8,6 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jockey+One&display=swap');
             *{
                 margin:0;padding:0;
+                box-sizing: border-box;
             }
 
 
@@ -40,6 +41,75 @@
                     font-weight: 400;
                 }
             }
+
+
+            #sec1{
+                 height: 725px;
+                 background: rgb(162, 243, 249);
+                .container1{
+                    height: 638px;
+                    background: rgb(196, 33, 237);
+                    max-width: 1318px;  
+                    margin:auto;
+                    position: relative;
+                    top:46px;
+                    padding-top:46px;
+                    h1{
+                        color: rgb(0, 0, 0);
+                        font-family: Inter;
+                        font-size: 38px;
+                        font-weight: 400;
+                        text-align: center;  
+                        /* margin-top: 46px;   */
+                    }
+
+
+                    .sec1_content{
+
+                        margin: auto;
+                        margin-top: 92px;
+                        max-width: 1008px;
+                        height: 367px;
+                        background: rgb(217, 217, 217);
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items:start;
+                        padding-top: 50px;
+
+
+
+                        .sec1_content_text{
+                            max-width: 304px;
+                      
+
+                            h3{
+                                color: rgb(0, 0, 0);
+                                font-family: Inter;
+                                font-size: 38px;
+                                font-weight: 400;
+                                text-align: center;
+                                margin-bottom: 27px;
+                            }
+                            p{
+                                color: rgb(0, 0, 0);
+                                font-family: Inter;
+                                font-size: 14px;
+                                font-weight: 400;
+                                text-align: left;
+                            }
+                        }
+
+
+                        img{
+                            width: 305px;
+                            height: 226px;
+                            position: relative;
+                            top:20px;
+                        }
+                    }
+                }
+
+            }
     </style>
     <title>Document</title>
 </head>
@@ -50,5 +120,23 @@
     <header>
         <h1>Header - #D9D9D9</h1>
     </header>
+
+    <section id="sec1">
+        <div class="container1">
+            <h1>Page title</h1>
+            <div class="sec1_content">
+                <div class="sec1_content_text">
+                    <h3>Block title</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining esse</p>
+                </div>
+                <img src="./img1.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section id="sec2"></section>
+    <section id="sec3"></section>
+    <footer>
+
+    </footer>
 </body>
 </html>
