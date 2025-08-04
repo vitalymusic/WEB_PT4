@@ -52,10 +52,45 @@ document.write(`<img src=" ${obj1.bilde}" width="300px"> `);
 // Darbības ar skaitļiem
 
 // document.write(summ.toFixed(2));
-let sk1 = +prompt('Ievadiet 1. skaitli'); //Atmiņā saglabā tikai STRING
-let sk2 = +prompt('Ievadiet 2. skaitli'); //Atmiņā saglabā tikai STRING
+// let sk1 = +prompt('Ievadiet 1. skaitli'); //Atmiņā saglabā tikai STRING
+// let sk2 = +prompt('Ievadiet 2. skaitli'); //Atmiņā saglabā tikai STRING
 
 
-document.write(sk1+sk2);
+// document.write(sk1+sk2);
 
 const skaitlis = 45; //tikai nolasāms mainīgais
+
+
+// Math.round(x)
+// console.log(Math.ceil(0.95));
+console.log(Math.floor(5.95));
+// Expected output: 5
+
+document.write(Math.trunc(Math.random()*100))
+
+
+// Teksta funkcijas
+
+document.write(text1[3]);
+
+// Konkatenācija
+
+let html = "<h1>" + text1 + "</h1>"; 
+html += "<a href=' "+ text2+" '>"+text2+"</a>";
+html += "<br>";
+
+result = html.toLowerCase();
+result = html.toUpperCase();
+result = html.slice(0,100);
+
+
+result = text2.split("j");
+result = text2.search("tekkkk");
+result = text2.search("tekkkk");
+result = text2.replace("teksts","gads");
+
+
+
+document.write(result);
+console.log(result);
+
