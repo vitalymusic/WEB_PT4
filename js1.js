@@ -22,6 +22,7 @@ let bool1 = true;
 let arr1 = [10,"teksts",bool1,[],{}]; //Masīvi
 let krasas = ["balta", "melna"]
 
+
 let obj1 = {
     marka:"BMW",
     krasas:krasas,
