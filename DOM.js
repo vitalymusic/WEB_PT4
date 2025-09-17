@@ -79,3 +79,38 @@ document.body.style.background = "linear-gradient(#000,blue)";
 // Elementa CSS klases pievienošana / noņemšana
 
 heading1.classList.add('border','background');
+heading1.classList.remove('background');
+
+
+
+// Notikumu pievienošana pie elementiem
+
+heading1.onclick = ()=>{
+    heading1.classList.toggle('background');
+}
+
+for (cell of document.querySelectorAll('table td')){
+    cell.onmouseenter = (e)=>{
+        // console.log(e);
+        e.target.style.background = "white";
+        e.target.style.fontSize = "14pt";
+    }
+
+     cell.onmouseleave = (e)=>{
+        // console.log(e);
+        e.target.style.background = "none";
+         e.target.style.fontSize = "";
+    }
+}
+
+document.body.onkeydown = (e)=>{
+    //  console.log(e);
+
+     if(e.key==1){
+        document.body.style.background = "red";
+     }
+     if(e.key==2){
+        document.body.style.background = "green";
+     }
+     
+}
