@@ -69,5 +69,13 @@ for(image of images){
 
 
 
-// 
+// Elementa stila maiņa
 
+heading1.style.marginTop = "30px";
+heading1.style.color = "#f60808ff";
+document.body.style.background = "linear-gradient(#000,blue)";
+
+
+// Elementa CSS klases pievienošana / noņemšana
+
+heading1.classList.add('border','background');
