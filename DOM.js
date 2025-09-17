@@ -28,16 +28,46 @@ div1.innerHTML += "<input type=\"text\" name=\"textInp\">";
 
 let html = "";
 
-for(let i=0;i<10;i++){
+for(let rinda=0;rinda<10;rinda++){
     html+=`<tr>`;
-        for(let j=0;j<10;j++){
-             html+=`<td>${i+1} un ${j+1}</td>`
+        for(let suna=0;suna<10;suna++){
+             html+=`<td>${rinda+1} un ${suna+1}</td>`
         }
     html+=`</tr>`;
 }
 
 tabula.innerHTML += html;
 
-console.log(heading1,textinDiv,images);
+console.log(html);
 
+// console.log(heading1,textinDiv,images);
+
+
+// Elementu atribūtu mainīšana
+
+heading1.setAttribute('id','first');
+console.log(heading1.getAttribute('id'));
+
+tabula.id = "tabula1";
+tabula.className = "tabula1";
+
+
+
+images[0].src = "./imac-1998.jpg";
+images[0].alt = "Imac";
+
+// Iestatīt vairākiem elementiem
+
+let imgNumber = 0;
+for(image of images){
+
+    image.src = `https://picsum.photos/id/${imgNumber}/200/300`;
+    image.alt = `Attēla ID ${imgNumber}`;
+
+    imgNumber++;
+}
+
+
+
+// 
 
