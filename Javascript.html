@@ -28,6 +28,21 @@
         .background{
             background-color: aquamarine;
         }
+
+        #dialog1[open]{
+                animation: fadein 1s ;
+        }
+
+        @keyframes fadein {
+            0%{
+                
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+            
+        }
     </style>
 </head>
 <body>
@@ -44,7 +59,15 @@
      <img>
      <img>
      <img>
-     <table border="1"></table>
-    <button onclick="izvade()"> Saskaitīt</button>
+     <button id="openDialog1">Parādīt Logu</button>
+     
+     <dialog id="dialog1">
+        <table border="1"></table>
+
+        <button id="closeDialog1">Aizvērt</button>
+     </dialog>
+     
+
+    <!-- <button onclick="izvade()"> Saskaitīt</button> -->
 </body>
 </html>

@@ -114,3 +114,20 @@ document.body.onkeydown = (e)=>{
      }
      
 }
+
+
+
+// modālais logs
+
+let openDialBtn = document.querySelector('#openDialog1');
+let closeDialBtn = document.querySelector('#closeDialog1');
+let dialog1 = document.querySelector('#dialog1');
+
+
+openDialBtn.onclick = ()=>{
+    dialog1.showModal();
+}
+
+closeDialBtn.onclick = ()=>{
+    dialog1.close();
+}
