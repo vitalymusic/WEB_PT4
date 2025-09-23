@@ -4,14 +4,18 @@
 // XMLHttpRequest
     document.body.style.background = "#fff";
 
+    function loadData(){
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then((response) => response.json())
+            .then((json) => showData(json));
+    }
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-  .then((response) => response.json())
-  .then((json) => showData(json));
+
 
 
 
   function showData(data){
+    document.querySelector(".posts").innerHTML ="";
 
         for( post of data){
             document.querySelector(".posts").innerHTML +=`
