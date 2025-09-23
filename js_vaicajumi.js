@@ -42,18 +42,30 @@ function showUser(userID) {
 
                 document.querySelector('#openDialog2').showModal();
             });
-
-            
-
-
 }
 
 function closeModal(element){
-
         document.querySelector(element).close();
         document.querySelector(".data").remove();
-
 }
+
+
+
+    const formBackend = "https://www.formbackend.com/f/00bed15c59b760e9";
+    const contactFormEl = document.querySelector('#contactForm');
+
+    contactFormEl.onsubmit = (e)=>{
+        e.preventDefault();
+        let data = new FormData(contactFormEl);
+
+        fetch(formBackend,{
+            method:"POST",
+            body:data
+        })
+          .then((response) => response.json())  
+          .then((json) => console.log(json))  
+    }
+
 
 
 
