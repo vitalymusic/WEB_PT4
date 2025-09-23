@@ -60,10 +60,19 @@ function closeModal(element){
 
         fetch(formBackend,{
             method:"POST",
-            body:data
+            body:data,
+            headers: {
+               'accept': 'application/json',
+            },
         })
           .then((response) => response.json())  
-          .then((json) => console.log(json))  
+          .then((json) => {
+            if(json.errors){
+                alert('Vēstule ir nosūtīta');
+            }else{
+                console.error(json.errors);
+            }
+          })  
     }
 
 
