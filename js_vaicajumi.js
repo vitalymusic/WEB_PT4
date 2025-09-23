@@ -19,17 +19,24 @@
 
         for( post of data){
             document.querySelector(".posts").innerHTML +=`
-                <div class="post">
-                    <h1>${post.title}</h1>
+                <div class="post" data-userId = "${post.userId}" style="cursor:pointer" onclick = "showUser(${post.userId})">
+                    <h1 >${post.title}</h1>
                     <p>
                         ${post.body}
                     </p>
                 </div>
             `
 
+            
         }
 
   }
+
+  function showUser(userID){
+    console.log(userID);
+
+
+  } 
 
 
 
