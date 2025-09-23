@@ -92,7 +92,7 @@ heading1.onclick = ()=>{
 for (cell of document.querySelectorAll('table td')){
     cell.onmouseenter = (e)=>{
         // console.log(e);
-        e.target.style.background = "white";
+        e.target.style.background = "#1285f8ff";
         e.target.style.fontSize = "14pt";
     }
 
@@ -125,9 +125,11 @@ let dialog1 = document.querySelector('#dialog1');
 
 
 openDialBtn.onclick = ()=>{
+     dialog1.dataset.open = true;
     dialog1.showModal();
 }
 
 closeDialBtn.onclick = ()=>{
+     dialog1.dataset.open = false;
     dialog1.close();
 }
