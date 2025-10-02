@@ -61,28 +61,31 @@ for (lauks of formasLauki1) {
     lauks.removeAttribute('required');
 }
 
-let errors = [];
+
 
 contactFormEl.onsubmit = (e) => {
+
+
     e.preventDefault();
     // Formas validācija
     let formasLauki = document.querySelectorAll('input,textarea');
-
 
     // Izņemam vecās kļūdas
 
     for(errorDiv of document.querySelectorAll('.invalid-feedback')){
         errorDiv.remove();
     }
+    let errors = [];
 
 
     if (formasLauki[0].value.length < 3) {
-        errors.push("Ievadiet Vārdu");
+        let error = "Ievadiet Vārdu";
+        errors.push(error);
         formasLauki[0].classList.add('is-invalid');
         if (!formasLauki[0].parentElement.querySelector('.invalid-feedback')) {
             formasLauki[0].parentElement.innerHTML += `
             <div id="invalidCheck1" class="invalid-feedback">
-                        ${errors[0]}
+                       ${error}
             </div>  
           `
         }
@@ -90,16 +93,16 @@ contactFormEl.onsubmit = (e) => {
     }
     else {
         formasLauki[0].classList.replace('is-invalid', 'is-valid');
-        
     }
 
     if (!formasLauki[1].value.match(/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim)) {
-        errors.push("Ievadiet pareizu epastu");
+        let error = "Ievadiet pareizu epastu";
+        errors.push(error);
         formasLauki[1].classList.add('is-invalid');
         if (!formasLauki[1].parentElement.querySelector('.invalid-feedback')) {
             formasLauki[1].parentElement.innerHTML += `
             <div id="invalidCheck1" class="invalid-feedback">
-                        ${errors[1]}
+                        ${error}
             </div>  
           `
         }
@@ -110,12 +113,13 @@ contactFormEl.onsubmit = (e) => {
     }
 
      if (formasLauki[2].value.length < 10) {
-        errors.push("Ievadiet ziņu vismaz 10 simboli");
+        let error = "Ievadiet ziņu vismaz 10 simboli";
+        errors.push(error);
         formasLauki[2].classList.add('is-invalid');
         if (!formasLauki[2].parentElement.querySelector('.invalid-feedback')) {
             formasLauki[2].parentElement.innerHTML += `
             <div id="invalidCheck1" class="invalid-feedback">
-                        ${errors[2]}
+                       ${error}
             </div>  
           `
         }
@@ -124,15 +128,17 @@ contactFormEl.onsubmit = (e) => {
         formasLauki[2].classList.replace('is-invalid', 'is-valid');
         
     }
+    console.log(errors);
+    if(errors.length > 0){
+        return;
+    }
 
 
 
 
 
-
-
-    console.log(formasLauki);
-    return;
+    
+    
 
     let data = new FormData(contactFormEl);
 
