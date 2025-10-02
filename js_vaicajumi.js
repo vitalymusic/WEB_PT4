@@ -68,6 +68,14 @@ contactFormEl.onsubmit = (e) => {
     // Formas validācija
     let formasLauki = document.querySelectorAll('input,textarea');
 
+
+    // Izņemam vecās kļūdas
+
+    for(errorDiv of document.querySelectorAll('.invalid-feedback')){
+        errorDiv.remove();
+    }
+
+
     if (formasLauki[0].value.length < 3) {
         errors.push("Ievadiet Vārdu");
         formasLauki[0].classList.add('is-invalid');
@@ -82,7 +90,7 @@ contactFormEl.onsubmit = (e) => {
     }
     else {
         formasLauki[0].classList.replace('is-invalid', 'is-valid');
-        formasLauki[0].parentElement.querySelector('.invalid-feedback').remove();
+        
     }
 
     if (!formasLauki[1].value.match(/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim)) {
@@ -99,9 +107,7 @@ contactFormEl.onsubmit = (e) => {
     }
     else {
         formasLauki[1].classList.replace('is-invalid', 'is-valid');
-        formasLauki[1].parentElement.querySelector('.invalid-feedback').remove();
     }
-
 
      if (formasLauki[2].value.length < 10) {
         errors.push("Ievadiet ziņu vismaz 10 simboli");
@@ -113,11 +119,10 @@ contactFormEl.onsubmit = (e) => {
             </div>  
           `
         }
-
     }
     else {
         formasLauki[2].classList.replace('is-invalid', 'is-valid');
-        formasLauki[2].parentElement.querySelector('.invalid-feedback').remove();
+        
     }
 
 
