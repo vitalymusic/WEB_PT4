@@ -54,8 +54,35 @@ function closeModal(element){
     const formBackend = "https://www.formbackend.com/f/00bed15c59b760e9";
     const contactFormEl = document.querySelector('#contactForm');
 
+
+    let formasLauki = document.querySelectorAll('input,textarea');
+        
+        for(lauks of formasLauki){
+            lauks.removeAttribute('required');
+        }
+
+        let errors = [];
+
     contactFormEl.onsubmit = (e)=>{
         e.preventDefault();
+        // Formas validācija
+
+
+        if(formasLauki[0].value.length <3){
+          errors.push("Ievadiet Vārdu");
+            formasLauki[0].classList.add('is-invalid');
+
+
+        }
+
+
+
+        
+
+
+        console.log(formasLauki);
+        return;
+
         let data = new FormData(contactFormEl);
 
         fetch(formBackend,{
