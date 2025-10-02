@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/daisyui.css"
+        integrity="sha512-0H9mLC6Px7XKRFcC+1nMm3KdhLZwbXr3urza6zM8neJqge8e59xdVPTet/0AcIGExw2q9+vzELlqfV5MzRoGxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/themes.min.css"
+        integrity="sha512-syMk7bGod8SZwkM3ZfK2zn4cqGN8czk84LA7/svFnHi2Lm+w4KSYKPlKHun+wMx8hDoTcpLpfgJQwN8al/oLiA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div role="alert" class="alert alert-success">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Your purchase has been confirmed!</span>
+    </div>
+
+
+    <!-- Navbar -->
+
+    <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li><a>Item 1</a></li>
+                    <li>
+                        <a>Parent</a>
+                        <ul class="p-2">
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Item 3</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-ghost text-xl">daisyUI</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a>Item 1</a></li>
+                <li>
+                    <details>
+                        <summary>Parent</summary>
+                        <ul class="p-2">
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a>Item 3</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <a class="btn alertBtn">Button</a>
+        </div>
+    </div>
+    <!-- Navbar -->
+
+    <div class="bg-linear-to-r from-cyan-500 to-blue-500 p-10 ">
+        <h1 class="text-7xl text-white/85 text-center">Bibliotēkas</h1>
+        <img src="./imac-1998.jpg" alt="" class="w-md w-100 m-5 ">
+        <p class="text-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cumque enim vitae officia
+            ipsum ullam asperiores repudiandae ab est rerum ad quae incidunt iure, voluptatum eos sequi saepe
+            reprehenderit molestias!</p>
+    </div>
+
+
+
+    <script>
+        // Jquery kods
+        $(document).ready(()=>{
+            $('.alert').hide();
+            $('.alertBtn').click(()=>{
+                showAlert("Tu nospiedi pogu!");
+                $('img').addClass('border')
+            })
+
+
+            function showAlert(text){
+                 $('.alert span').text(text);
+                 $('.alert').show();
+                 
+                 setTimeout(()=>{
+                    $('.alert').fadeOut();
+                 },5000)
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>
