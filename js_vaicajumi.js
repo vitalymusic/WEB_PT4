@@ -64,100 +64,71 @@ for (lauks of formasLauki1) {
 
 
 contactFormEl.onsubmit = (e) => {
-
-
     e.preventDefault();
-    // Formas validācija
-    let formasLauki = document.querySelectorAll('input,textarea');
 
-    // Izņemam vecās kļūdas
+    const formasLauki = document.querySelectorAll('#contactForm input, #contactForm textarea');
 
-    for(errorDiv of document.querySelectorAll('.invalid-feedback')){
-        errorDiv.remove();
-    }
+    // Notīrām iepriekšējās kļūdas
+    document.querySelectorAll('.invalid-feedback').forEach(err => err.remove());
+    formasLauki.forEach(field => field.classList.remove('is-invalid', 'is-valid'));
+
     let errors = [];
 
-
-    if (formasLauki[0].value.length < 3) {
-        let error = "Ievadiet Vārdu";
-        errors.push(error);
-        formasLauki[0].classList.add('is-invalid');
-        if (!formasLauki[0].parentElement.querySelector('.invalid-feedback')) {
-            formasLauki[0].parentElement.innerHTML += `
-            <div id="invalidCheck1" class="invalid-feedback">
-                       ${error}
-            </div>  
-          `
-        }
-
-    }
-    else {
-        formasLauki[0].classList.replace('is-invalid', 'is-valid');
-    }
-
-    if (!formasLauki[1].value.match(/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim)) {
-        let error = "Ievadiet pareizu epastu";
-        errors.push(error);
-        formasLauki[1].classList.add('is-invalid');
-        if (!formasLauki[1].parentElement.querySelector('.invalid-feedback')) {
-            formasLauki[1].parentElement.innerHTML += `
-            <div id="invalidCheck1" class="invalid-feedback">
-                        ${error}
-            </div>  
-          `
-        }
-
-    }
-    else {
-        formasLauki[1].classList.replace('is-invalid', 'is-valid');
-    }
-
-     if (formasLauki[2].value.length < 10) {
-        let error = "Ievadiet ziņu vismaz 10 simboli";
-        errors.push(error);
-        formasLauki[2].classList.add('is-invalid');
-        if (!formasLauki[2].parentElement.querySelector('.invalid-feedback')) {
-            formasLauki[2].parentElement.innerHTML += `
-            <div id="invalidCheck1" class="invalid-feedback">
-                       ${error}
-            </div>  
-          `
+    // Palīgfunkcija kļūdu pievienošanai
+    function addError(field, msg) {
+        errors.push(msg);
+        field.classList.add('is-invalid');
+        if (!field.parentElement.querySelector('.invalid-feedback')) {
+            const div = document.createElement('div');
+            div.className = 'invalid-feedback';
+            div.innerText = msg;
+            field.parentElement.appendChild(div);
         }
     }
-    else {
-        formasLauki[2].classList.replace('is-invalid', 'is-valid');
-        
+
+    // Validācijas noteikumi
+    if (formasLauki[0].value.trim().length < 3) {
+        addError(formasLauki[0], "Ievadiet vārdu (vismaz 3 simboli)");
+    } else {
+        formasLauki[0].classList.add('is-valid');
     }
-    console.log(errors);
-    if(errors.length > 0){
-        return;
+
+    const emailRegex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/i;
+    if (!emailRegex.test(formasLauki[1].value.trim())) {
+        addError(formasLauki[1], "Ievadiet pareizu e-pastu");
+    } else {
+        formasLauki[1].classList.add('is-valid');
     }
 
+    if (formasLauki[2].value.trim().length < 10) {
+        addError(formasLauki[2], "Ievadiet ziņu (vismaz 10 simboli)");
+    } else {
+        formasLauki[2].classList.add('is-valid');
+    }
 
+    if (errors.length > 0) return;
 
-
-
-    
-    
-
-    let data = new FormData(contactFormEl);
+    // Nosūtam formu
+    const data = new FormData(contactFormEl);
 
     fetch(formBackend, {
         method: "POST",
         body: data,
-        headers: {
-            'accept': 'application/json',
-        },
+        headers: { 'accept': 'application/json' },
     })
-        .then((response) => response.json())
-        .then((json) => {
-            if (json.errors) {
-                alert('Vēstule ir nosūtīta');
-            } else {
-                console.error(json.errors);
-            }
-        })
-}
+    .then(res => res.json())
+    .then(json => {
+        if (json.errors.length == 0) {
+            alert('Vēstule ir nosūtīta');
+            contactFormEl.reset();
+            formasLauki.forEach(f => f.classList.remove('is-valid'));
+        } else {
+            console.error(json.errors);
+        }
+    })
+    .catch(err => console.error("Kļūda:", err));
+};
+
 
 
 
